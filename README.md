@@ -1,13 +1,12 @@
 Klient postgres
 ---
-Windows<br>
-Należy pobrać i rozpakować psql.zip<br>
+Na Windows, pobrać i rozpakować psql.zip<br>
 https://drive.google.com/uc?id=0ByVgko533JLjVk1sdVNBNUthLXc&export=download
 
-Można też pobrać z oficjalnej strony postgresa<br>
+Windows i inne OS, można pobrać z oficjalnej strony postgresa<br>
 https://www.postgresql.org/download/
 
-Żeby utworzyć bazę
+Żeby utworzyć bazę<br>
 `psql -h ADRES_BAZY -U postgres -c 'create database NAZWA_BAZY;'`<br>
 `psql -h 217.182.73.240 -U postgres -c 'create database marcinkrol;'`
 
@@ -39,7 +38,7 @@ Usuń tabelę<br>
 `drop table users;`<br>
 
 Złączanie tabeli<br>
-`select KOLUMNA, ... from TABELA1 join TABELA2 on KOLUMNA1=KOLUMNA2 where WARUNEK;`
+`select KOLUMNA, ... from TABELA1 join TABELA2 on KOLUMNA1=KOLUMNA2 where WARUNEK;`<br>
 `select shop_name, product_name from products p join shops s on p.shop_id=s.id where p.price > 10;`
 
 Uaktualnienie rekordu<br>
@@ -75,7 +74,7 @@ Zadanie 1 [SQL]
 Zadanie 2 [SQL]
 ------
 
-1. Utwórz tabelę users
+1. Utwórz tabelę users<br>
 `create table users(id bigserial primary key, login text, password text, town_id bigint references towns(id));`
 
 2. Umieść w tabeli<br>
