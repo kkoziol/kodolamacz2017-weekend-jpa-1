@@ -7,7 +7,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 @NamedQueries({ @NamedQuery(name = "User.findAll", query = "select u from User u"),
-		@NamedQuery(name = "User.findById", query = "select u from User u where u.id = :ID") })
+		@NamedQuery(name = "User.findById", query = "select u from User u where u.id = :ID"),
+		@NamedQuery(name = "User.getPary", query = "select new weekend.examples.Pary(u.login, u.password) from User u")})
 public class User {
 
 	@Id

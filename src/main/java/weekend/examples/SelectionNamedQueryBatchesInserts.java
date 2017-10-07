@@ -20,7 +20,7 @@ public class SelectionNamedQueryBatchesInserts {
 		long start = System.nanoTime();
 		tx.begin();
 
-		for (int j = 0; j < 100000; j++) {
+		for (int j = 0; j < 100_000; j++) {
 
 			User u = new User("kk", "aa", null);
 			u.setRegistrationDate(null);
@@ -31,7 +31,6 @@ public class SelectionNamedQueryBatchesInserts {
 				entityManager.clear();
 			}
 			System.out.println("iteracja " + j);
-			// user = entityManager.merge(user);
 		}
 		System.out.println("przed komitem");
 		tx.commit();
@@ -39,6 +38,7 @@ public class SelectionNamedQueryBatchesInserts {
 		entityManager.close();
 		entityManagerFactory.close();
 		long koniec = System.nanoTime();
-		System.out.println("--->" + (koniec - start));
+		System.out.println("---sekund >" + (koniec - start)/1000_000_000);
+        //11s wersus 14s  bez na lokalnej maszynie
 	}
 }
