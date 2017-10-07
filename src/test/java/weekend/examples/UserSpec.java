@@ -24,7 +24,7 @@ public class UserSpec {
     }
 
     @Test
-    public void whenInfoThenDescriptionWithVersion() {
+    public void whenTwoThenUserTwo() {
         // Given Setup
         String expected = "";
         expected = "Podaj id:\n";
