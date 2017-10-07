@@ -1,53 +1,65 @@
 package weekend.task4;
 
+import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
+@NamedQueries({ @NamedQuery(name = "User.findAll", query = "select u from User u"),
+		@NamedQuery(name = "User.findById", query = "select u from User u where u.id = :ID") })
 public class User {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 
-  private String login;
-  private String password;
+	private String login;
+	private String password;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date registrationDate;
 
-  @ManyToOne
-  private Town town;
+	@ManyToOne
+	private Town town;
 
-  public User(String login, String password, Town town) {
-    this.login = login;
-    this.password = password;
-    this.town = town;
-  }
+	public User(String login, String password, Town town) {
+		this.login = login;
+		this.password = password;
+		this.town = town;
+	}
 
-  public User() {
-  }
+	public User() {
+	}
 
-  @Override
-  public String toString() {
-    return "User{" +
-        "id=" + id +
-        ", login='" + login + '\'' +
-        ", password='" + password + '\'' +
-        ", town=" + town +
-        '}';
-  }
+	@Override
+	public String toString() {
+		return "User{" + "id=" + id + ", login='" + login + '\'' + ", password='" + password + '\'' + ", town=" + town
+				+ '}';
+	}
 
-  public int getId() {
-    return id;
-  }
+	public int getId() {
+		return id;
+	}
 
-  public String getLogin() {
-    return login;
-  }
+	public String getLogin() {
+		return login;
+	}
 
-  public String getPassword() {
-    return password;
-  }
+	public String getPassword() {
+		return password;
+	}
 
-  public Town getTown() {
-    return town;
-  }
+	public Town getTown() {
+		return town;
+	}
+
+	public Date getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+
 }

@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 
 public class Insertion {
   public static void main(String[] args) {
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("postgres");
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("h2");
     EntityManager entityManager = entityManagerFactory.createEntityManager();
     entityManager.getTransaction().begin();
 
