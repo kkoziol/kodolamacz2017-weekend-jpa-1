@@ -3,6 +3,10 @@ package weekend.task4;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -14,10 +18,20 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
+    
+	@NotNull
 	private String login;
+
+	//minimum 4 
+	//(message zeby byly po polsku)
+	@Size(min=4, message="Hasło powinno mieć minimum 4 znaki!")
 	private String password;
 	
+	
+	//napisac test sprawdzajacy działanie walidacji.
+	//uzyc junit i assertJ
+	
+	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registrationDate;
 
@@ -61,6 +75,22 @@ public class User {
 
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setTown(Town town) {
+		this.town = town;
 	}
 
 }
